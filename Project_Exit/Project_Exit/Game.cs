@@ -7,6 +7,9 @@ namespace Project_Exit
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
 
+        private static Player player;
+        public static Player Player { get { return player; } }
+
         private static bool gameOver = false;
         public static void Run()
         {
@@ -17,7 +20,7 @@ namespace Project_Exit
                 Console.Clear();
                 if (curScene != sceneDic["Title"])
                 {
-                    Console.WriteLine("                                 텍스트를 넘기려면 : X");
+                    Console.WriteLine("                                          텍스트를 넘기려면 : X");
                 }
                 curScene.Render();
                 curScene.Input();
@@ -37,6 +40,8 @@ namespace Project_Exit
         {
             Console.CursorVisible = false;
             gameOver = false;
+
+            player = new Player();
 
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
