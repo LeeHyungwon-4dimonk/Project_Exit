@@ -41,6 +41,7 @@ namespace Project_Exit
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Prologue", new PrologueScene());
+            sceneDic.Add("SecretR1", new SecretRoomScene1());
 
             curScene = sceneDic["Title"];
         }
