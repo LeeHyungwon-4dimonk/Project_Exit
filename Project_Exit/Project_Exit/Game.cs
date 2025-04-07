@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Project_Exit.Scenes;
+﻿using Project_Exit.Scenes;
 
 namespace Project_Exit
 {
@@ -21,6 +15,10 @@ namespace Project_Exit
             while (gameOver == false)
             {
                 Console.Clear();
+                if (curScene != sceneDic["Title"])
+                {
+                    Console.WriteLine("                                 텍스트를 넘기려면 : X");
+                }
                 curScene.Render();
                 curScene.Input();
                 Console.WriteLine();
@@ -38,12 +36,18 @@ namespace Project_Exit
         private static void Start()
         {
             Console.CursorVisible = false;
-            gameOver = false ;
+            gameOver = false;
 
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
+            sceneDic.Add("Prologue", new PrologueScene());
 
             curScene = sceneDic["Title"];
+        }
+
+        public static void ChangeScene(string sceneName)
+        {
+            curScene = sceneDic[sceneName];
         }
 
         /// <summary>
