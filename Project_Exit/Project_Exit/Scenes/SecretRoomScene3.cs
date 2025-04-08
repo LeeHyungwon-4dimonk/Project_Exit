@@ -1,11 +1,13 @@
-﻿namespace Project_Exit.Scenes
+﻿using System.ComponentModel.Design;
+
+namespace Project_Exit.Scenes
 {
     public class SecretRoomScene3 : SecretRoomField
     {
         protected bool EnterFirstTime = true;
         public SecretRoomScene3()
         {
-            name = "SecretR2";
+            name = "SecretR3";
 
             mapData = new string[]
             {
@@ -33,7 +35,7 @@
             }
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR2", '▥', new Vector2(5, 2)));
-            gameObjects.Add(new Place("Goal", 'G', new Vector2(38, 10)));
+            gameObjects.Add(new Place("Ending", 'G', new Vector2(38, 10)));
 
             Game.Player.map = map;
         }
@@ -54,8 +56,11 @@
             if (Game.prevScene == "SecretR2")
             {
                 Game.Player.position = new Vector2(5, 2);
-            }
+            }         
+
+
             Game.Player.map = map;
+           
         }
     }
 }

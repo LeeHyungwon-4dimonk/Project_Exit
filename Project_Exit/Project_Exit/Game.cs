@@ -29,6 +29,10 @@ namespace Project_Exit
                 curScene.Update();
                 Console.WriteLine();
                 curScene.Result();
+                if(curScene == sceneDic["Ending"])
+                {                    
+                    gameOver = true;
+                }
             }
 
             End();
@@ -50,6 +54,7 @@ namespace Project_Exit
             sceneDic.Add("SecretR1", new SecretRoomScene1());
             sceneDic.Add("SecretR2", new SecretRoomScene2());
             sceneDic.Add("SecretR3", new SecretRoomScene3());
+            sceneDic.Add("Ending", new EndingScene());
 
             curScene = sceneDic["Title"];
         }
@@ -68,7 +73,13 @@ namespace Project_Exit
         /// </summary>
         private static void End()
         {
-
+            Console.Clear();
+            curScene.Render();
+            curScene.Input();
+            Console.WriteLine();
+            curScene.Update();
+            Console.WriteLine();
+            curScene.Result();
         }
     }
 }
