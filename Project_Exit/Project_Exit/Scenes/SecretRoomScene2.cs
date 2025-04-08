@@ -4,7 +4,7 @@ namespace Project_Exit.Scenes
 {
     public class SecretRoomScene2 : SecretRoomField
     {
-        protected bool isReadingP = true;
+        protected bool EnterFirstTime = true;
         public SecretRoomScene2()
         {
             name = "SecretR2";
@@ -39,13 +39,13 @@ namespace Project_Exit.Scenes
             Game.Player.map = map;
         }        
         
-        protected void StartText()
+        protected override void StartText()
         {
-            if (isReadingP) // 최초 1회만 출력되도록 함
+            if (EnterFirstTime) // 최초 1회만 출력되도록 함
             {
                 Console.SetCursorPosition(0, 14);
                 Console.WriteLine("당신은 계단을 타고 한 층을 내려왔습니다.");
-                isReadingP = false;
+                EnterFirstTime = false;
             }
         }
 
@@ -53,8 +53,7 @@ namespace Project_Exit.Scenes
         {
             if (Game.prevScene == "SecretR1")
             {
-                Game.Player.position = new Vector2(38, 6);
-                StartText();
+                Game.Player.position = new Vector2(38, 6);                
             }
             Game.Player.map = map;
         }

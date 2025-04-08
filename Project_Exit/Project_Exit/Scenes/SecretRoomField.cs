@@ -23,6 +23,7 @@ namespace Project_Exit.Scenes
                 go.Print();
             }
             Game.Player.Print();
+            StartText();
         }
         public override void Input()
         {
@@ -62,6 +63,7 @@ namespace Project_Exit.Scenes
                 }
                 Console.WriteLine();
             }
-        }        
+        }
+        protected virtual void StartText() { }        
     }
 }

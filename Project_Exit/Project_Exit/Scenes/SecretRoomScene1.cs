@@ -38,7 +38,7 @@
             Game.Player.map = map;
         }
 
-        protected void StartText()
+        protected override void StartText()
         {
             if (isReadingP) // 최초 1회만 출력되도록 함
             {
@@ -56,10 +56,9 @@
             if (Game.prevScene == "Prologue")
             {
                 Game.Player.position = new Vector2(1, 2);
-                StartText();
             }
             else if (Game.prevScene == "SecretR2")
-            {
+            {                
                 Game.Player.position = new Vector2(38, 6);
             }
             Game.Player.map = map;
