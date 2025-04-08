@@ -48,8 +48,9 @@ namespace Project_Exit.Scenes
             if (EnterFirstTime) // 최초 1회만 출력되도록 함
             {
                 Console.SetCursorPosition(0, 14);
-                Console.WriteLine("당신은 계단을 타고 한 층을 내려왔습니다.");
+                Util.XKeyText("당신은 계단을 타고 한 층을 내려왔습니다.");
                 Util.XKeyText("이곳에는 누군가 다른 사람이 있는 것 같습니다.");
+                Console.WriteLine("계속하려면 아무 키나 누르세요.");
                 EnterFirstTime = false;
             }
         }

@@ -52,10 +52,11 @@ namespace Project_Exit.Scenes
             if (isReadingP) // 최초 1회만 출력되도록 함
             {
                 Console.SetCursorPosition(0, 14);
-                Console.WriteLine("여긴 어디지?");
+                Util.XKeyText("여긴 어디지?");
                 Util.XKeyText("당신은 어떤 지저분한 방에서 눈을 뜹니다");
                 Util.XKeyText("당신은 몸에 있던 먼지를 털어내고");
                 Util.XKeyText("움직여 보기로 합니다.");
+                Console.WriteLine("계속하려면 아무 키나 누르세요.");
                 isReadingP = false;
             }
         }

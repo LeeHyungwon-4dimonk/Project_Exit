@@ -10,11 +10,11 @@ namespace Project_Exit.Scenes
     {
         public override void Render()
         {
-            Console.WriteLine("당신은 어둠 속에서 눈을 떴다.");
+            Util.XKeyText("당신은 어둠 속에서 눈을 떴다.");
             Util.XKeyText("이곳은 어둡고 퀴퀴한 냄새가 나고");
             Util.XKeyText("춥고 딱딱한 바닥에 몸서리치며");
             Util.XKeyText("깨어납니다.");
-            Util.XKeyText("Press Any Key to Continue...");
+            Console.WriteLine("Press Any Key to Continue...");
         }
         public override void Input()
         {

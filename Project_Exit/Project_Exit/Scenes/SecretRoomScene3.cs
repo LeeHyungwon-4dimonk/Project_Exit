@@ -50,6 +50,7 @@ namespace Project_Exit.Scenes
                 Console.SetCursorPosition(0, 14);
                 Console.WriteLine("당신은 계단을 타고 한 층을 더 내려왔습니다.");
                 Util.XKeyText("저 멀리에 밖으로 나갈 수 있는 문이 보입니다.");
+                Console.WriteLine("계속하려면 아무 키나 누르세요.");
                 EnterFirstTime = false;
             }
         }
