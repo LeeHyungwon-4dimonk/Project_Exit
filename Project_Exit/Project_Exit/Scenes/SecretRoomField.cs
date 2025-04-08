@@ -31,7 +31,7 @@ namespace Project_Exit.Scenes
             {
                 if (npc.isTalking == true && input == ConsoleKey.X)
                 {
-                    npc.Talk();
+                    npc.Interact(Game.Player);
                 }
             }
         }
@@ -61,10 +61,7 @@ namespace Project_Exit.Scenes
             }
             foreach (NPC npc in npcList)
             {
-                if(npc.IsInteractable())
-                {
-                    npc.Interact(Game.Player);
-                }
+                npc.isTalking = npc.IsInteractable()? true : false;
             }
         }
         private void PrintMap()

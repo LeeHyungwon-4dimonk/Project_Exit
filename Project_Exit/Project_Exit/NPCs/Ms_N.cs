@@ -2,8 +2,6 @@
 {
     public class Ms_N : NPC
     {
-        public string name;
-        private int likeablity;
         public int Likeablity { get { return likeablity; } }
         public Ms_N(Vector2 position)
             : base(ConsoleColor.DarkYellow, 'N', position)
@@ -15,7 +13,7 @@
 
         public override void Interact(Player player)
         {
-            isTalking = true;
+            Talk();
         }
 
         public override void Talk()
