@@ -21,16 +21,19 @@ namespace Project_Exit.Scenes
             }
             foreach (NPC npc in npcList)
             {
-                npc.Print();
-                if (npc.isTalking == true)
-                {
-                    npc.Talk();
-                }
+                npc.Print();                
             }
             Game.Player.Print();
             Game.Player.inventory.BrieflyPrint();            
             Game.Player.inventory.PrintAchievedItem();
             StartText();
+            foreach (NPC npc in npcList)
+            {
+                if (npc.isTalking == true && input == ConsoleKey.X)
+                {
+                    npc.Talk();
+                }
+            }
         }
         public override void Input()
         {
