@@ -46,6 +46,7 @@ namespace Project_Exit.Scenes
             {
                 Console.SetCursorPosition(0, 14);
                 Console.WriteLine("당신은 계단을 타고 한 층을 내려왔습니다.");
+                Util.XKeyText("이곳에는 누군가 다른 사람이 있는 것 같습니다.");
                 EnterFirstTime = false;
             }
         }

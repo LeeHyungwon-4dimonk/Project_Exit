@@ -23,6 +23,7 @@ namespace Project_Exit.Scenes
                 go.Print();
             }
             Game.Player.Print();
+            Game.Player.inventory.BrieflyPrint();
             StartText();
         }
         public override void Input()
@@ -42,6 +43,11 @@ namespace Project_Exit.Scenes
                 if (Game.Player.position == go.position && input != ConsoleKey.X)
                 {
                     go.Interact(Game.Player);
+                    if(go.isOnce == true)
+                    {
+                        gameObjects.Remove(go);
+                    }
+                    break;
                 }
             }
         }

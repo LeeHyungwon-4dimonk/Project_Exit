@@ -1,4 +1,6 @@
-﻿namespace Project_Exit.Scenes
+﻿using Project_Exit.Items;
+
+namespace Project_Exit.Scenes
 {
     public class SecretRoomScene1 : SecretRoomField
     {
@@ -33,6 +35,8 @@
             }
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR2", '▥', new Vector2(38, 6)));
+            gameObjects.Add(new Bandage(new Vector2(8, 8)));
+
 
             Game.Player.position = new Vector2(1, 2);
             Game.Player.map = map;

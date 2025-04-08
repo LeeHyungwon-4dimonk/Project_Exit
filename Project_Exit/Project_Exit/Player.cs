@@ -9,14 +9,31 @@ namespace Project_Exit
 {
     public class Player
     {
-        private int playerHP = 5;
-        public int PlayerHP { get { return playerHP; } }
+        private int MaxPlayerHP = 5;
+        private int curPlayerHP = 5;
+        public int CurPlayerHP { get { return curPlayerHP; } }
 
         private int playerMental = 5;
         public int PlayerMental { get { return playerMental; } }
 
         public Vector2 position;
         public bool[,] map;
+
+        public Inventory inventory;
+
+        public Player()
+        {
+            inventory = new Inventory();
+        }
+
+        public void HPHeal(int amount)
+        {
+            curPlayerHP += amount;
+            if(curPlayerHP > MaxPlayerHP)
+            {
+                curPlayerHP = MaxPlayerHP;
+            }
+        }
 
         public void Print()
         {
