@@ -6,6 +6,7 @@ namespace Project_Exit
     {
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
+        public static string prevScene;
 
         private static Player player;
         public static Player Player { get { return player; } }
@@ -54,7 +55,11 @@ namespace Project_Exit
 
         public static void ChangeScene(string sceneName)
         {
+            prevScene = curScene.name;
+
+            curScene.Exit();
             curScene = sceneDic[sceneName];
+            curScene.Enter();
         }
 
         /// <summary>
