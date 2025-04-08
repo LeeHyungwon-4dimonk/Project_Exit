@@ -64,7 +64,6 @@ namespace Project_Exit
         {
             prevScene = curScene.name;
 
-            curScene.Exit();
             curScene = sceneDic[sceneName];
             curScene.Enter();
         }

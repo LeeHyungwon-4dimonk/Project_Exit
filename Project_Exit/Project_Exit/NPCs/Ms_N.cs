@@ -24,15 +24,8 @@
             Util.XKeyText("안녕하세요");
             Util.XKeyText("당신은 누구신가요?");
             Util.XKeyText("제 이름은 N양이라고 해요");
-            Console.WriteLine("대화를 종료하려면 Z키를 누르세요.");
-            while (true)
-            {
-                input = Console.ReadKey(true).Key;
-                if (input == ConsoleKey.Z)
-                {
-                    break;
-                }                
-            }
+            Console.WriteLine("대화를 종료하려면 X키 외의 아무 키를 누르세요.");
+            
             isTalking = false;
         }
     }
