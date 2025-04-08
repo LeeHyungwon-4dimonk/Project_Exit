@@ -51,8 +51,6 @@ namespace Project_Exit
             {
                 position = targetPos;
             }
-
         }
-
     }
 }

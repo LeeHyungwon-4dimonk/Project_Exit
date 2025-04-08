@@ -1,6 +1,6 @@
 ﻿namespace Project_Exit.Scenes
 {
-    internal class SecretRoomScene1 : BaseScene
+    public class SecretRoomScene1 : BaseScene
     {
         private string[] mapData;
         private bool[,] map;
@@ -69,7 +69,7 @@
         {
             foreach(GameObject go in gameObjects)
             {
-                if(Game.Player.position == go.position)
+                if(Game.Player.position == go.position && input != ConsoleKey.X)
                 {
                     go.Interact(Game.Player);
                 }
