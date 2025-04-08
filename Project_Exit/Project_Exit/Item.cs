@@ -15,6 +15,7 @@ namespace Project_Exit
         public Item(Vector2 position)
             : base(ConsoleColor.Yellow, 'I', position, true)
         {
+            
         }
         public override void Interact(Player player)
         {
@@ -23,5 +24,7 @@ namespace Project_Exit
 
         public abstract void Use();
         
+
+
     }
 }

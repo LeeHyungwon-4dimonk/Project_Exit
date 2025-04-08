@@ -24,6 +24,7 @@ namespace Project_Exit.Scenes
             }
             Game.Player.Print();
             Game.Player.inventory.BrieflyPrint();
+            Game.Player.inventory.PrintAchievedItem();
             StartText();
         }
         public override void Input()

@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project_Exit.Items;
 
 namespace Project_Exit
 {
     public class Inventory
     {
         public Item[] items;
+        private int lastAcievedIndex;
+
+        private bool itemAchieved;
         public Inventory()
         {
             items = new Item[4];            
@@ -21,6 +25,8 @@ namespace Project_Exit
                 if(items[i] == null)
                 {
                     items[i] = item;
+                    lastAcievedIndex = i;
+                    itemAchieved = true;
                     break;
                 }
             }            
@@ -33,9 +39,18 @@ namespace Project_Exit
 
         public void Drop(int index)
         {
-            items[index] = null;
+            items[index] = null;            
         }
-        
+
+        public void PrintAchievedItem()
+        {
+            if (itemAchieved)
+            {
+                Console.SetCursorPosition(0, 13);
+                Console.Write($"{items[lastAcievedIndex].name}를 획득했습니다.");
+                itemAchieved = false;
+            }
+        }
 
         public void BrieflyPrint()
         {
@@ -52,6 +67,6 @@ namespace Project_Exit
                     Console.Write(" □ ");
                 }
             }
-        }
+        }        
     }
 }
