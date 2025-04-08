@@ -14,7 +14,7 @@ namespace Project_Exit.Scenes
             Console.WriteLine("============================");
             Console.WriteLine("        Project Exit     ");
             Console.WriteLine();
-            Console.WriteLine("               시나리오 :"   );
+            Console.WriteLine("                 제작 :"   );
             Console.WriteLine("                   by 이형원");
             Console.WriteLine("============================");
             Console.WriteLine();

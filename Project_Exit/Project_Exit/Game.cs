@@ -47,6 +47,7 @@ namespace Project_Exit
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Prologue", new PrologueScene());
             sceneDic.Add("SecretR1", new SecretRoomScene1());
+            sceneDic.Add("SecretR2", new SecretRoomScene2());
 
             curScene = sceneDic["Title"];
         }

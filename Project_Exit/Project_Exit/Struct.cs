@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Project_Exit
+﻿namespace Project_Exit
 {
     public struct Vector2
     {
@@ -16,5 +10,15 @@ namespace Project_Exit
             this.x = x;
             this.y = y;
         }
+
+        public static bool operator ==(Vector2 left, Vector2 right)
+        {
+            return left.x == right.x && left.y == right.y;
+        }
+        public static bool operator !=(Vector2 left, Vector2 right)
+        {
+            return left.x != right.x || left.y != right.y;
+        }
+
     }
 }
