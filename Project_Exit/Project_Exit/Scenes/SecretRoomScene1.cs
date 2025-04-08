@@ -30,6 +30,11 @@ namespace Project_Exit.Scenes
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR2", '▥', new Vector2(38, 6)));
             gameObjects.Add(new Bandage(new Vector2(8, 8)));
+            gameObjects.Add(new Bandage(new Vector2(9, 8)));
+            gameObjects.Add(new Bandage(new Vector2(10, 8)));
+            gameObjects.Add(new Bandage(new Vector2(11, 8)));
+            gameObjects.Add(new Bandage(new Vector2(12, 8)));
+
 
             npcList = new List<NPC>();
             npcList.Add(new Ms_N(new Vector2(26, 10)));

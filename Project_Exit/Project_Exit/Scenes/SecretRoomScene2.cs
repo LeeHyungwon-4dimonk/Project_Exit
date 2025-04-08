@@ -61,6 +61,10 @@ namespace Project_Exit.Scenes
             {
                 Game.Player.position = new Vector2(38, 6);                
             }
+            else if (Game.prevScene == "SecretR3")
+            {
+                Game.Player.position = new Vector2(5, 2);
+            }
             Game.Player.map = map;
         }
     }

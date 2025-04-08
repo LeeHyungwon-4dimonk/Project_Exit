@@ -13,6 +13,7 @@ namespace Project_Exit
         private int lastAcievedIndex;
 
         private bool itemAchieved;
+        public bool ItemAchieved { get { return itemAchieved; } }
         public Inventory()
         {
             items = new Item[4];            
@@ -27,6 +28,11 @@ namespace Project_Exit
                     items[i] = item;
                     lastAcievedIndex = i;
                     itemAchieved = true;
+                    break;
+                }
+                if(items[items.Length-1] != null)
+                {
+                    itemAchieved = false;
                     break;
                 }
             }            
@@ -49,7 +55,7 @@ namespace Project_Exit
                 Console.SetCursorPosition(0, 13);
                 Console.Write($"{items[lastAcievedIndex].name}를 획득했습니다.");
                 itemAchieved = false;
-            }
+            }            
         }
 
         public void BrieflyPrint()

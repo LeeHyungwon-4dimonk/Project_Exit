@@ -52,7 +52,7 @@ namespace Project_Exit.Scenes
                 if (Game.Player.position == go.position && input != ConsoleKey.X)
                 {
                     go.Interact(Game.Player);
-                    if (go.isOnce == true)
+                    if (go.isOnce == true && Game.Player.inventory.ItemAchieved)
                     {
                         gameObjects.Remove(go);
                     }

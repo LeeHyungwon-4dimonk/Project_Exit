@@ -18,7 +18,7 @@ namespace Project_Exit
             
         }
         public override void Interact(Player player)
-        {
+        {            
             player.inventory.Add(this);
         }
 
