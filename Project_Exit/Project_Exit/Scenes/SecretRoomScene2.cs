@@ -2,19 +2,13 @@
 
 namespace Project_Exit.Scenes
 {
-    public class SecretRoomScene2 : BaseScene
+    public class SecretRoomScene2 : SecretRoomField
     {
-        private string[] mapData;
-        private bool[,] map;
-
-        private List<GameObject> gameObjects;
-
-        private bool isReadingP = true;
-
-        private ConsoleKey input;
-
+        protected bool isReadingP = true;
         public SecretRoomScene2()
         {
+            name = "SecretR2";
+
             mapData = new string[]
             {
                 "########################################",
@@ -42,60 +36,10 @@ namespace Project_Exit.Scenes
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR1", '▥', new Vector2(38, 6)));
 
-            Game.Player.position = new Vector2(1, 2);
             Game.Player.map = map;
-        }
-        public override void Render()
-        {
-            PrintMap();
-            foreach (GameObject go in gameObjects)
-            {
-                go.Print();
-            }
-            Game.Player.Print();
-            StartText();
-
-        }
-        public override void Input()
-        {
-            input = Console.ReadKey(true).Key;
-        }
-
-        public override void Update()
-        {
-            Game.Player.Move(input);
-        }
-
-        public override void Result()
-        {
-            foreach (GameObject go in gameObjects)
-            {
-                if (Game.Player.position == go.position && input!= ConsoleKey.X)
-                {
-                    go.Interact(Game.Player);
-                }
-            }
-        }
-        private void PrintMap()
-        {
-            Console.SetCursorPosition(0, 0);
-            for (int y = 0; y < map.GetLength(0); y++)
-            {
-                for (int x = 0; x < map.GetLength(1); x++)
-                {
-                    if (map[y, x] == true)
-                    {
-                        Console.Write(' ');
-                    }
-                    else
-                    {
-                        Console.Write('#');
-                    }
-                }
-                Console.WriteLine();
-            }
-        }
-        private void StartText()
+        }        
+        
+        protected void StartText()
         {
             if (isReadingP) // 최초 1회만 출력되도록 함
             {
@@ -103,6 +47,16 @@ namespace Project_Exit.Scenes
                 Console.WriteLine("당신은 계단을 타고 한 층을 내려왔습니다.");
                 isReadingP = false;
             }
+        }
+
+        public override void Enter()
+        {
+            if (Game.prevScene == "SecretR1")
+            {
+                Game.Player.position = new Vector2(38, 6);
+                StartText();
+            }
+            Game.Player.map = map;
         }
     }
 }
