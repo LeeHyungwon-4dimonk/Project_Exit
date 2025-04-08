@@ -1,4 +1,5 @@
-﻿using Project_Exit.Scenes;
+﻿using Project_Exit.NPCs;
+using Project_Exit.Scenes;
 
 namespace Project_Exit
 {
@@ -10,6 +11,7 @@ namespace Project_Exit
 
         private static Player player;
         public static Player Player { get { return player; } }
+
 
         private static bool gameOver = false;
         public static void Run()
@@ -47,7 +49,6 @@ namespace Project_Exit
             gameOver = false;
 
             player = new Player();
-
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Prologue", new PrologueScene());

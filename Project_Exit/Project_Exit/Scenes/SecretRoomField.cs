@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Project_Exit.NPCs;
 
 namespace Project_Exit.Scenes
 {
@@ -11,10 +7,11 @@ namespace Project_Exit.Scenes
         protected string[] mapData;
         protected bool[,] map;
 
-        protected List<GameObject> gameObjects;        
+        protected List<GameObject> gameObjects;
+        protected List<NPC> npcList;
 
         private ConsoleKey input;
-        
+
         public override void Render()
         {
             PrintMap();
@@ -22,8 +19,16 @@ namespace Project_Exit.Scenes
             {
                 go.Print();
             }
+            foreach (NPC npc in npcList)
+            {
+                npc.Print();
+                if (npc.isTalking == true)
+                {
+                    npc.Talk();
+                }
+            }
             Game.Player.Print();
-            Game.Player.inventory.BrieflyPrint();
+            Game.Player.inventory.BrieflyPrint();            
             Game.Player.inventory.PrintAchievedItem();
             StartText();
         }
@@ -44,11 +49,18 @@ namespace Project_Exit.Scenes
                 if (Game.Player.position == go.position && input != ConsoleKey.X)
                 {
                     go.Interact(Game.Player);
-                    if(go.isOnce == true)
+                    if (go.isOnce == true)
                     {
                         gameObjects.Remove(go);
                     }
                     break;
+                }
+            }
+            foreach (NPC npc in npcList)
+            {
+                if(npc.IsInteractable())
+                {
+                    npc.Interact(Game.Player);
                 }
             }
         }
@@ -71,6 +83,6 @@ namespace Project_Exit.Scenes
                 Console.WriteLine();
             }
         }
-        protected virtual void StartText() { }        
+        protected virtual void StartText() { }
     }
 }

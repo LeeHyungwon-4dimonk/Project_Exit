@@ -22,9 +22,6 @@ namespace Project_Exit
             player.inventory.Add(this);
         }
 
-        public abstract void Use();
-        
-
-
+        public abstract void Use();  
     }
 }

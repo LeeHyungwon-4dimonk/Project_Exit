@@ -26,6 +26,12 @@ namespace Project_Exit.Scenes
             };
             map = new bool[12, 40];
 
+            gameObjects = new List<GameObject>();
+            gameObjects.Add(new Place("SecretR1", '▥', new Vector2(38, 6)));
+            gameObjects.Add(new Place("SecretR3", '▥', new Vector2(5, 2)));
+
+            npcList = new List<NPC>();
+
             for (int y = 0; y < map.GetLength(0); y++)
             {
                 for (int x = 0; x < map.GetLength(1); x++)
@@ -33,10 +39,7 @@ namespace Project_Exit.Scenes
                     map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
             }
-            gameObjects = new List<GameObject>();
-            gameObjects.Add(new Place("SecretR1", '▥', new Vector2(38, 6)));
-            gameObjects.Add(new Place("SecretR3", '▥', new Vector2(5, 2)));
-
+            
             Game.Player.map = map;
         }        
         

@@ -1,4 +1,5 @@
 ﻿using Project_Exit.Items;
+using Project_Exit.NPCs;
 
 namespace Project_Exit.Scenes
 {
@@ -26,17 +27,21 @@ namespace Project_Exit.Scenes
             };
             map = new bool[12, 40];
 
-            for (int y = 0; y < map.GetLength(0); y++)
-            {
-                for (int x = 0; x < map.GetLength(1); x++)
-                {
-                    map[y, x] = mapData[y][x] == '#' ? false : true;
-                }
-            }
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR2", '▥', new Vector2(38, 6)));
             gameObjects.Add(new Bandage(new Vector2(8, 8)));
 
+            npcList = new List<NPC>();
+            npcList.Add(new Ms_N(new Vector2(26, 10)));
+
+            for (int y = 0; y < map.GetLength(0); y++)
+            {
+                for (int x = 0; x < map.GetLength(1); x++)
+                {
+                    map[y, x] = mapData[y][x] == '#' ? false : true;                    
+                }                
+            }
+            
 
             Game.Player.position = new Vector2(1, 2);
             Game.Player.map = map;
