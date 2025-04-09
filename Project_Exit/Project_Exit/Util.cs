@@ -65,10 +65,30 @@ namespace Project_Exit
         }
 
         // NPC 대사 출력용 색깔 텍스트
-        public static void NPCText(string text)
+        public static void NPC_NText(string text)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"N양 : {text}");
+            Console.ResetColor();
+            while (true)
+            {
+                input = Console.ReadKey(true).Key;
+                if (input == ConsoleKey.X)
+                {
+                    break;
+                }
+                else // X키 외의 키를 누르면 무반응으로 설정
+                {
+                    continue;
+                }
+            }
+        }
+
+        // NPC - C군 대사 출력용 색깔 텍스트
+        public static void NPC_CText(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"C군 : {text}");
             Console.ResetColor();
             while (true)
             {

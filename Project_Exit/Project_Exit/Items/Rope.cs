@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_Exit.Items
 {
-    public sealed class Rope:Item
+    public sealed class Rope : Item
     {
         public Rope(Vector2 position) : base(position, false)
         {

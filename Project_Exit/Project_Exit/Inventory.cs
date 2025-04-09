@@ -53,7 +53,7 @@
             if (itemAchieved)
             {
                 Console.SetCursorPosition(0, 13);
-                Console.Write($"{items[lastAcievedIndex].name}를 획득했습니다.");
+                Console.Write($"{items[lastAcievedIndex].name}을/를 획득했습니다.");
                 itemAchieved = false;
             }
         }

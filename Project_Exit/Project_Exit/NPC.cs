@@ -16,11 +16,15 @@ namespace Project_Exit
         public bool isTalking;
         public ConsoleKey input;
         public string name;
-        public NPC(ConsoleColor color, char symbol, Vector2 position)
+
+        protected bool unableToAct;
+        public bool UnableToAct { get { return unableToAct; } }
+        public NPC(ConsoleColor color, char symbol, Vector2 position, bool unableToAct)
         {
             this.color = color;
             this.symbol = symbol;
             this.position = position;
+            this.unableToAct = unableToAct;
         }
 
         public void Print()
