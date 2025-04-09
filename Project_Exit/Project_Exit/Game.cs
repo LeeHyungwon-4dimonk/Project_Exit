@@ -48,6 +48,8 @@ namespace Project_Exit
             Console.CursorVisible = false;
             gameOver = false;
 
+            
+
             player = new Player();
             sceneDic = new Dictionary<string, BaseScene>();
             sceneDic.Add("Title", new TitleScene());
