@@ -7,7 +7,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace Project_Exit
 {
-    public abstract class Item : GameObject
+    public class Item : GameObject
     {
         public string name;
         public string description;
@@ -23,6 +23,6 @@ namespace Project_Exit
             player.inventory.Add(this);
         }
 
-        public abstract void Use();  
+        public virtual void Use() { }  
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_Exit.Items
 {
-    public class Bandage : Item
+    public sealed class Bandage : Item
     {
         public Bandage(Vector2 position)
             : base(position, true)

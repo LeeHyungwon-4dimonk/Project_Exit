@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project_Exit.Scenes;
 
 namespace Project_Exit
 {
@@ -14,10 +15,7 @@ namespace Project_Exit
         public Vector2 position;
         public bool isTalking;
         public ConsoleKey input;
-        public string curSceneName = Game.prevScene;
-
         public string name;
-        protected int likeablity;
         public NPC(ConsoleColor color, char symbol, Vector2 position)
         {
             this.color = color;

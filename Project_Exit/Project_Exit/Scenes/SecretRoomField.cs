@@ -10,7 +10,7 @@ namespace Project_Exit.Scenes
         protected List<GameObject> gameObjects;
         protected List<NPC> npcList;
 
-        private ConsoleKey input;     
+        private ConsoleKey input;
 
         public override void Render()
         {

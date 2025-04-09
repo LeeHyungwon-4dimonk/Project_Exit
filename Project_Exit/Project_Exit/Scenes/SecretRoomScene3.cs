@@ -4,7 +4,7 @@ namespace Project_Exit.Scenes
 {
     public class SecretRoomScene3 : SecretRoomField
     {
-        protected bool EnterFirstTime = true;
+        protected bool EnterFirstTime = true;      
         public SecretRoomScene3()
         {
             name = "SecretR3";
@@ -38,8 +38,7 @@ namespace Project_Exit.Scenes
                 {
                     map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
-            }
-            
+            }            
             Game.Player.map = map;
         }
 
@@ -60,11 +59,8 @@ namespace Project_Exit.Scenes
             if (Game.prevScene == "SecretR2")
             {
                 Game.Player.position = new Vector2(5, 2);
-            }         
-
-
+            }
             Game.Player.map = map;
-           
         }
     }
 }

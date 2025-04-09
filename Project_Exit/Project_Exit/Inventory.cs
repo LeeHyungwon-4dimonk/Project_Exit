@@ -105,7 +105,6 @@
                     case "Menu": Menu(); break;
                     case "Detail": Detail(); break;
                     case "DropMenu": DropMenu(); break;
-                    case "DropConfirm": break;
                 }
             }
         }
@@ -182,7 +181,9 @@
                         }
                         else
                         {
+                            Console.WriteLine();
                             Console.WriteLine("사용할 수 없는 아이템입니다.");
+                            Console.WriteLine();
                             Util.XKeyText("뒤로 가려면 X키를 눌러주세요.");
                         }
                     }

@@ -27,6 +27,22 @@ namespace Project_Exit
                 }
             }                      
         }
+        public static void ZKeyText(string text)
+        {
+            Console.WriteLine(text);
+            while (true)
+            {
+                input = Console.ReadKey(true).Key;
+                if (input == ConsoleKey.Z)
+                {
+                    break;
+                }
+                else // X키 외의 키를 누르면 무반응으로 설정
+                {
+                    continue;
+                }
+            }
+        }
 
         // 플레이어 대사 출력용 색깔 텍스트
         public static void PlayerText(string text)

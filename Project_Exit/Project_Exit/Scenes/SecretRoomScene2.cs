@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Metadata.Ecma335;
+using Project_Exit.Items;
 using Project_Exit.NPCs;
 
 namespace Project_Exit.Scenes
@@ -6,6 +7,7 @@ namespace Project_Exit.Scenes
     public class SecretRoomScene2 : SecretRoomField
     {
         protected bool EnterFirstTime = true;
+
         public SecretRoomScene2()
         {
             name = "SecretR2";
@@ -30,9 +32,10 @@ namespace Project_Exit.Scenes
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR1", '▥', new Vector2(38, 6)));
             gameObjects.Add(new Place("SecretR3", '▥', new Vector2(5, 2)));
+            gameObjects.Add(new Rope(new Vector2(37, 3)));
 
             npcList = new List<NPC>();
-            npcList.Add(new Ms_N(new Vector2(36, 8)));
+            npcList.Add(new Ms_N2(new Vector2(36, 8)));
 
             for (int y = 0; y < map.GetLength(0); y++)
             {
@@ -41,6 +44,7 @@ namespace Project_Exit.Scenes
                     map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
             }
+            map[8, 36] = false;
             
             Game.Player.map = map;
         }        
