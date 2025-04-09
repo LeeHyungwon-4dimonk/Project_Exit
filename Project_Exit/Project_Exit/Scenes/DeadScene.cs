@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +7,11 @@ using System.Xml.Linq;
 
 namespace Project_Exit.Scenes
 {
-    internal class EndingScene : BaseScene
+    internal class DeadScene : BaseScene
     {
-        public EndingScene()
+        public DeadScene()
         {
-            name = "Ending";
+            name = "DeadEnding";
         }
 
         public override void Render()
@@ -20,10 +19,11 @@ namespace Project_Exit.Scenes
             Console.Clear();
 
             Console.WriteLine("============================");
-            Console.WriteLine(" 플레이 해주셔서 감사합니다 ");
+            Console.WriteLine("         Game Over          ");
+            Console.WriteLine("      당신은 죽었습니다     ");
             Console.WriteLine();
-            Console.WriteLine("                 제작 :");
-            Console.WriteLine("                   by 이형원");
+            Console.WriteLine("        준비도 없이         ");
+            Console.WriteLine("    남에게 덤비지 맙시다    ");
             Console.WriteLine("============================");
         }
         public override void Input()
@@ -38,7 +38,7 @@ namespace Project_Exit.Scenes
 
         public override void Result()
         {
-                
+
         }
     }
 }

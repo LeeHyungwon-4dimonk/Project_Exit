@@ -57,7 +57,8 @@ namespace Project_Exit
             sceneDic.Add("SecretR1", new SecretRoomScene1());
             sceneDic.Add("SecretR2", new SecretRoomScene2());
             sceneDic.Add("SecretR3", new SecretRoomScene3());
-            sceneDic.Add("Ending", new EndingScene());         
+            sceneDic.Add("Ending", new EndingScene());
+            sceneDic.Add("DeadEnding", new DeadScene());
 
 
             curScene = sceneDic["Title"];
@@ -84,15 +85,9 @@ namespace Project_Exit
             Console.WriteLine();
             curScene.Result();
         }
-        public static void GameOver(string reason)
+        public static void GameOver()
         {
-            gameOver = true;
-            Console.Clear();
-            Console.WriteLine("**********************************");
-            Console.WriteLine("*          You Died...           *");
-            Console.WriteLine("**********************************");
-            Console.WriteLine();
-            Console.WriteLine(reason);
+            gameOver = true;            
         }
     }
 }

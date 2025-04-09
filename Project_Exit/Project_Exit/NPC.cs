@@ -17,14 +17,11 @@ namespace Project_Exit
         public ConsoleKey input;
         public string name;
 
-        protected bool unableToAct;
-        public bool UnableToAct { get { return unableToAct; } }
-        public NPC(ConsoleColor color, char symbol, Vector2 position, bool unableToAct)
+        public NPC(ConsoleColor color, char symbol, Vector2 position)
         {
             this.color = color;
             this.symbol = symbol;
             this.position = position;
-            this.unableToAct = unableToAct;
         }
 
         public void Print()

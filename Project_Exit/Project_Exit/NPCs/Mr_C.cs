@@ -5,11 +5,10 @@
         Queue<int> talkLog = new Queue<int>();
         private bool eventHappened = false;
         public Mr_C(Vector2 position)
-            : base(ConsoleColor.Red, 'C', position, false)
+            : base(ConsoleColor.Red, 'C', position)
         {
             name = "C군";
             isTalking = false;
-            unableToAct = false;
             talkLog.Enqueue(1);
             talkLog.Enqueue(2);
             talkLog.Enqueue(3);
@@ -51,8 +50,6 @@
             }
         }
 
-        public delegate void TalkLog();
-
         private void TalkLog1()
         {
             Console.SetCursorPosition(0, 14);
@@ -61,8 +58,8 @@
             Console.WriteLine();
             Util.XKeyText("지금이라면 도망치거나, 아니면 남자를 제압할 수 있을 것 같습니다.");
             Console.WriteLine();
-            Console.WriteLine("1. 남자를 칼로 찌른다. ( 칼 소지품 필요)");
-            Console.WriteLine("2. 남자를 밧줄로 포박한다 ( 밧줄 소지품 필요)");
+            Console.WriteLine("1. 남자를 칼로 찌른다. ( 칼 소지품 필요 )");
+            Console.WriteLine("2. 남자를 밧줄로 포박한다 ( 밧줄 소지품 필요 )");
             Console.WriteLine("3. 이대로 조용히 도망친다.");
             Console.WriteLine();
             input = Console.ReadKey(true).Key;
@@ -105,7 +102,8 @@
                 Util.XKeyText("당신과 남자는 몸싸움을 벌였고,");
                 Util.XKeyText("당신보다 더 힘 쎈 남자에게 제압 당하면서 칼에 찔렸습니다.");
                 Util.XKeyText("N양의 비명소리가 아득해지면서 당신은 정신을 잃습니다.");
-                Game.GameOver("준비도 없이 남을 제압하려 들지 맙시다.");
+                Game.GameOver();
+                Game.ChangeScene("DeadEnding");
             }
 
             isTalking = false;
@@ -123,7 +121,7 @@
                     Console.WriteLine();
                     Util.XKeyText("위험천만한 몸싸움이 벌어졌지만,");
                     Util.XKeyText("당신은 비몽사몽한 상태의 남자를 제압할 수 있었습니다.");
-                    // TODO 인벤토리에서 아이템 제거 진행
+                    // TODO 인벤토리에서 아이템 제거(밧줄) 진행
                     Util.XKeyText("남자는 묶인 채로 주저앉습니다.");
                     Console.WriteLine();
                     Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
@@ -140,7 +138,8 @@
                 Util.XKeyText("당신과 남자는 몸싸움을 벌였고,");
                 Util.XKeyText("당신보다 더 힘 쎈 남자에게 제압 당하면서 칼에 찔렸습니다.");
                 Util.XKeyText("N양의 비명소리가 아득해지면서 당신은 정신을 잃습니다.");
-                Game.GameOver("준비도 없이 남을 제압하려 들지 맙시다.");
+                Game.GameOver();
+                Game.ChangeScene("DeadEnding");
             }
 
             isTalking = false;
@@ -151,6 +150,7 @@
             Util.XKeyText("남자는 당신들이 지나갈 때까지도 여전히 잠을 자고 있습니다.");
             Console.WriteLine();
             Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            talkLog.Dequeue();
             talkLog.Dequeue();
             talkLog.Dequeue();
             talkLog.Dequeue();

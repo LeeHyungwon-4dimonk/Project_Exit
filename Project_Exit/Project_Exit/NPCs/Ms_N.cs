@@ -6,11 +6,10 @@ namespace Project_Exit.NPCs
     {
         Queue<int> talkLog = new Queue<int>();
         public Ms_N(Vector2 position)
-            : base(ConsoleColor.DarkYellow, 'N', position, false)
+            : base(ConsoleColor.DarkYellow, 'N', position)
         {
             name = "N양";
             isTalking = false;          
-            unableToAct = false;
             talkLog.Enqueue(1);
             talkLog.Enqueue(2);
             talkLog.Enqueue(3);
