@@ -11,11 +11,12 @@ namespace Project_Exit
     {
         public string name;
         public string description;
+        public bool isUsable;
 
-        public Item(Vector2 position)
+        public Item(Vector2 position, bool isUsable)
             : base(ConsoleColor.Yellow, 'I', position, true)
         {
-            
+            this.isUsable = isUsable;
         }
         public override void Interact(Player player)
         {            

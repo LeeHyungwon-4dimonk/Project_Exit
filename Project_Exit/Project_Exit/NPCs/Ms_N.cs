@@ -82,7 +82,6 @@ namespace Project_Exit.NPCs
             Util.XKeyText("당신은 무어라 할 말이 없어 돌아섭니다.");
             Console.WriteLine();
             Console.WriteLine("대화를 종료하려면 X키 외의 아무 키를 누르세요.");
-
         }
     }
 }
