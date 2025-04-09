@@ -102,7 +102,10 @@
             if (eventHappened == false)
             {
                 Util.XKeyText("당신에게는 남자를 제압할 칼이 없었습니다.");
-                // 죽음묘사
+                Util.XKeyText("당신과 남자는 몸싸움을 벌였고,");
+                Util.XKeyText("당신보다 더 힘 쎈 남자에게 제압 당하면서 칼에 찔렸습니다.");
+                Util.XKeyText("N양의 비명소리가 아득해지면서 당신은 정신을 잃습니다.");
+                Game.GameOver("준비도 없이 남을 제압하려 들지 맙시다.");
             }
 
             isTalking = false;
@@ -134,7 +137,10 @@
             if (eventHappened == false)
             {
                 Util.XKeyText("당신에게는 남자를 제압할 밧줄이 없었습니다.");
-                // 죽음묘사
+                Util.XKeyText("당신과 남자는 몸싸움을 벌였고,");
+                Util.XKeyText("당신보다 더 힘 쎈 남자에게 제압 당하면서 칼에 찔렸습니다.");
+                Util.XKeyText("N양의 비명소리가 아득해지면서 당신은 정신을 잃습니다.");
+                Game.GameOver("준비도 없이 남을 제압하려 들지 맙시다.");
             }
 
             isTalking = false;
@@ -195,7 +201,7 @@
             Util.NPC_CText("그만 깜빡 잠들어버렸지 뭐냐.");
             Console.WriteLine();
             Util.XKeyText("남자는 칼을 정리합니다.");
-            // 인벤토리에 칼 있을 시 제거
+            // 인벤토리에 칼 있을 시 제거 / 필드에서 칼 제거
             Console.WriteLine();
             Util.NPC_CText("하여튼 너네 둘, 머리가 아프거나 숙취가 있다거나 하나?");
             Util.NPC_NText("아, 아뇨! 없어요!");

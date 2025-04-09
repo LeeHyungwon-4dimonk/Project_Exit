@@ -84,5 +84,15 @@ namespace Project_Exit
             Console.WriteLine();
             curScene.Result();
         }
+        public static void GameOver(string reason)
+        {
+            gameOver = true;
+            Console.Clear();
+            Console.WriteLine("**********************************");
+            Console.WriteLine("*          You Died...           *");
+            Console.WriteLine("**********************************");
+            Console.WriteLine();
+            Console.WriteLine(reason);
+        }
     }
 }
