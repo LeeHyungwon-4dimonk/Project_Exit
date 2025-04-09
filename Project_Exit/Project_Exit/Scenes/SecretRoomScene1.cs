@@ -45,7 +45,7 @@ namespace Project_Exit.Scenes
                     map[y, x] = mapData[y][x] == '#' ? false : true;                    
                 }                
             }
-            
+            map[10, 5] = false;
 
             Game.Player.position = new Vector2(1, 2);
             Game.Player.map = map;

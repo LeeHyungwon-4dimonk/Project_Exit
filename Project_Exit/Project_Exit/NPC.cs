@@ -14,6 +14,7 @@ namespace Project_Exit
         public Vector2 position;
         public bool isTalking;
         public ConsoleKey input;
+        public string curSceneName = Game.prevScene;
 
         public string name;
         protected int likeablity;

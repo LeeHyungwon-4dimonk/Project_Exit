@@ -7,6 +7,7 @@ namespace Project_Exit
     {
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
+        public static BaseScene Curscene { get { return curScene; } }
         public static string prevScene;
 
         private static Player player;
@@ -57,7 +58,8 @@ namespace Project_Exit
             sceneDic.Add("SecretR1", new SecretRoomScene1());
             sceneDic.Add("SecretR2", new SecretRoomScene2());
             sceneDic.Add("SecretR3", new SecretRoomScene3());
-            sceneDic.Add("Ending", new EndingScene());
+            sceneDic.Add("Ending", new EndingScene());         
+
 
             curScene = sceneDic["Title"];
         }

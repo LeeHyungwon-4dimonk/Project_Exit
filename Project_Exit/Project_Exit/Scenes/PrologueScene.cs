@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Project_Exit.Scenes
 {
-    internal class PrologueScene : BaseScene
+    public class PrologueScene : BaseScene
     {
+        public PrologueScene()
+        {
+            name = "Prologue";
+        }
         public override void Render()
         {
             Util.XKeyText("당신은 어둠 속에서 눈을 떴습니다.");
