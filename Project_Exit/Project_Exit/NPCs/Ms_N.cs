@@ -19,9 +19,9 @@
         public override void Talk()
         {
             Console.SetCursorPosition(0, 14);
-            Util.XKeyText("안녕하세요");
-            Util.XKeyText("당신은 누구신가요?");
-            Util.XKeyText("제 이름은 N양이라고 해요");
+            Util.NPCText("안녕하세요");
+            Util.NPCText("당신은 누구신가요?");
+            Util.NPCText("제 이름은 N양이라고 해요");
             Console.WriteLine("대화를 종료하려면 X키 외의 아무 키를 누르세요.");
             
             isTalking = false;
