@@ -213,6 +213,7 @@
                     Game.Player.inventory.items[i] = null;
                 }
             }
+            // TODO 필드에 칼 있을 때 제거 작업
             Console.WriteLine();
             Util.NPC_CText("하여튼 너네 둘, 머리가 아프거나 숙취가 있다거나 하나?");
             Util.NPC_NText("아, 아뇨! 없어요!");

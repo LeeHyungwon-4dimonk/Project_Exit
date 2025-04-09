@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Project_Exit.Items;
 
 namespace Project_Exit.NPCs
 {
@@ -33,7 +34,7 @@ namespace Project_Exit.NPCs
                 switch (talkLog.Peek())
                 {
                     case 1: TalkLog1(); talkLog.Dequeue(); break;
-                    case 2: TalkLog2(); talkLog.Dequeue(); break;
+                    case 2: TalkLog2(); break;
                 }
             }
             else
@@ -72,9 +73,23 @@ namespace Project_Exit.NPCs
             Util.NPC_NText("사실은 나도 찾은 물건이 있는데, 유용할 지는 잘 모르겠어");
             Util.NPC_NText("일단 이 물건을 너한테 줄게.");
             Console.WriteLine();
-            // TODO 아이템 주기 구현하기
-            Console.WriteLine();
-            Util.XKeyText("당신은 그녀에게 물건을 받고서 나아갈 준비를 합니다.");
+            Bandage bandage = new Bandage(Game.Player.position);
+            for (int i = 0; i < Game.Player.inventory.items.Length; i++)
+            {
+                if (Game.Player.inventory.items[i] == null)
+                {                    
+                    Game.Player.inventory.Add(bandage);
+                    Util.XKeyText("당신은 그녀에게 붕대를 받고서 나아갈 준비를 합니다.");
+                    talkLog.Dequeue();
+                    break;
+                }
+                if (Game.Player.inventory.items[Game.Player.inventory.items.Length - 1] != null)
+                {
+                    Util.NPC_NText("들고 있는 게 너무 많은 것 같은데,");
+                    Util.NPC_NText("주머니에 든 걸 비워주고 다시 말을 걸어줘.");
+                    break;
+                }
+            }           
             Console.WriteLine();
             Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
 

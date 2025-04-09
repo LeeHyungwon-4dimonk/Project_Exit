@@ -36,8 +36,6 @@ namespace Project_Exit.NPCs
             }
         }
 
-        public delegate void TalkLog();
-
         private void TalkLog1()
         {
             Console.SetCursorPosition(0, 14);
