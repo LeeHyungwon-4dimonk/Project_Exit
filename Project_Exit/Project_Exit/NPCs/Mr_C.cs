@@ -85,7 +85,10 @@
                     Console.WriteLine();
                     Util.XKeyText("N양은 당신이 저지른 짓을 보고 충격을 받아 주저앉습니다.");
                     Util.XKeyText("다른 방법을 택할 수는 없었을까요?");
-                    Util.XKeyText("당신은 무심하게 N양을 바라봅니다.");
+                    Util.XKeyText("당신은 피 묻은 칼을 바닥에 버렸고,");
+                    Util.XKeyText("무심하게 N양을 바라봅니다.");
+                    // 칼 아이템을 버렸으니 인벤토리에서 제거
+                    Game.Player.inventory.items[i] = null;
                     Console.WriteLine();
                     Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
                     eventHappened = true;
@@ -121,7 +124,8 @@
                     Console.WriteLine();
                     Util.XKeyText("위험천만한 몸싸움이 벌어졌지만,");
                     Util.XKeyText("당신은 비몽사몽한 상태의 남자를 제압할 수 있었습니다.");
-                    // TODO 인벤토리에서 아이템 제거(밧줄) 진행
+                    // 아이템 사용으로 인한 제거
+                    Game.Player.inventory.items[i] = null;
                     Util.XKeyText("남자는 묶인 채로 주저앉습니다.");
                     Console.WriteLine();
                     Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
@@ -201,7 +205,14 @@
             Util.NPC_CText("그만 깜빡 잠들어버렸지 뭐냐.");
             Console.WriteLine();
             Util.XKeyText("남자는 칼을 정리합니다.");
-            // 인벤토리에 칼 있을 시 제거 / 필드에서 칼 제거
+            for (int i = 0; i < Game.Player.inventory.items.Length; i++)
+            {
+                if (Game.Player.inventory.items[i] != null && Game.Player.inventory.items[i].name == "칼")
+                {                    
+                    // 아이템 수거로 인해 인벤토리에 있을 시 제거
+                    Game.Player.inventory.items[i] = null;
+                }
+            }
             Console.WriteLine();
             Util.NPC_CText("하여튼 너네 둘, 머리가 아프거나 숙취가 있다거나 하나?");
             Util.NPC_NText("아, 아뇨! 없어요!");
