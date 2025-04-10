@@ -8,14 +8,19 @@ using Project_Exit.Scenes;
 
 namespace Project_Exit
 {
+    // 게임 내에서 상호작용 가능한 NPC
     public abstract class NPC : IInteractable
     {
         public ConsoleColor color;
         public char symbol;
         public Vector2 position;
+        
+        // NPC의 이름
+        public string name;
+
+        // NPC와의 대화 중 여부
         public bool isTalking;
         public ConsoleKey input;
-        public string name;
 
         public NPC(ConsoleColor color, char symbol, Vector2 position)
         {
@@ -24,6 +29,7 @@ namespace Project_Exit
             this.position = position;
         }
 
+        // NPC 출력
         public void Print()
         {
             Console.SetCursorPosition(position.x, position.y);
@@ -32,6 +38,8 @@ namespace Project_Exit
             Console.ResetColor();
         }
 
+        // NPC와의 상호작용은
+        // NPC 기준 상하좌우 위치에서만 가능 ( 해당 여부 판단용 )
         public bool IsInteractable()
         {
             if ((Game.Player.position.x - 1 == position.x && Game.Player.position.y == position.y)
@@ -44,8 +52,10 @@ namespace Project_Exit
             return false;
         }
 
+        // 상호작용 기능
         public abstract void Interact(Player player);
 
+        // 대화 기능
         public abstract void Talk();
     }
 }

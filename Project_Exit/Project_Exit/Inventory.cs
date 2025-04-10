@@ -5,11 +5,17 @@
         private Stack<string> stack = new Stack<string>();
 
         public Item[] items;
-        private int lastAcievedIndex;
-        private int selectIndex;
-
+        
+        // 아이템 선택 위치(인덱스)
+        private int selectIndex;        
+        
+        // 아이템의 획득 여부
         private bool itemAchieved;
         public bool ItemAchieved { get { return itemAchieved; } }
+        // 획득한 아이템의 위치(인덱스)
+        private int lastAcievedIndex;
+
+        // 인벤토리는 4칸으로 제한
         public Inventory()
         {
             items = new Item[4];
@@ -35,19 +41,7 @@
             }
         }
 
-        // 아이템 사용
-        public void Use(int index)
-        {
-            items[index].Use();
-        }
-
-        // 아이템 버리기
-        public void Drop(int index)
-        {
-            items[index] = null;
-        }
-
-        // 획득한 아이템 출력
+        // 획득한 아이템 출력 ( 맵 위 출력용 )
         public void PrintAchievedItem()
         {
             if (itemAchieved)
@@ -58,7 +52,19 @@
             }
         }
 
-        // 인벤토리 간략 출력
+        // 아이템 사용
+        public void Use(int index)
+        {
+            items[index].Use();
+        }
+
+        // 아이템 버리기
+        public void Drop(int index)
+        {
+            items[index] = null;
+        }        
+
+        // 인벤토리 간략 출력 ( 맵 위 출력용 )
         public void BrieflyPrint()
         {
             Console.SetCursorPosition(0, 12);
@@ -75,17 +81,19 @@
                 }
             }
         }
+
+        // 보유 중인 아이템을 전체 출력
         public void PrintAll()
         {
             Console.WriteLine("===소지 중인 아이템===");
             Console.WriteLine();
             for (int i = 0; i < items.Length; i++)
             {
-                if (items[i] != null)
+                if (items[i] != null)   //소지 중인 아이템은 해당 이름 출력
                 {
                     Console.WriteLine($"{i + 1}. {items[i].name}");
                 }
-                else
+                else    // 소지하지 않은 아이템은 비었다고 출력
                 {
                     Console.WriteLine($"{i + 1}. 비었음");
                 }
@@ -93,6 +101,7 @@
             Console.WriteLine();
         }
 
+        // 인벤토리 오픈 기능
         public void Open()
         {
             stack.Push("Menu");
@@ -108,6 +117,8 @@
                 }
             }
         }
+
+        // 인벤토리 메뉴 출력
         private void Menu()
         {
             PrintAll();
@@ -129,6 +140,8 @@
                     break;
             }
         }
+
+        // 아이템 상세 정보 출력 및 아이템 사용 여부 확인
         private void Detail()
         {
             PrintAll();
@@ -158,6 +171,8 @@
                         selectIndex = select;
 
                         Item selectItem = items[selectIndex];
+
+                        // 사용할 수 있는 아이템이면 사용 여부 확인
                         if (items[selectIndex].isUsable)
                         {
                             Console.WriteLine();
@@ -179,6 +194,7 @@
                                     break;
                             }
                         }
+                        // 사용할 수 없는 아이템이면 사용 불가 출력
                         else
                         {
                             Console.WriteLine();
@@ -190,6 +206,8 @@
                 }
             }
         }
+
+        // 아이템 버리기 메뉴 출력 및 버리기 여부 확인
         private void DropMenu()
         {
             PrintAll();

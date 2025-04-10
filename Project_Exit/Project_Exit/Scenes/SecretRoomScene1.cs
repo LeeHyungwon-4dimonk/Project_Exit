@@ -5,6 +5,7 @@ namespace Project_Exit.Scenes
 {
     public class SecretRoomScene1 : SecretRoomField
     {
+        // 첫 진입 여부
         protected bool isReadingP = true;
 
         public SecretRoomScene1()
@@ -43,6 +44,7 @@ namespace Project_Exit.Scenes
                     map[y, x] = mapData[y][x] == '#' ? false : true;                    
                 }                
             }
+            // NPC 위치와는 겹치지 않게 이동 불가로 설정
             map[10, 5] = false;
 
             Game.Player.position = new Vector2(1, 2);
@@ -51,7 +53,8 @@ namespace Project_Exit.Scenes
 
         protected override void StartText()
         {
-            if (isReadingP) // 최초 1회만 출력되도록 함
+            // 최초 1회만 출력되도록 함
+            if (isReadingP)
             {
                 Console.SetCursorPosition(0, 14);
                 Util.XKeyText("당신은 다락 같은 곳에서 눈을 떴습니다.");

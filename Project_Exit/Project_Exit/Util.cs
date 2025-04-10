@@ -10,7 +10,8 @@ namespace Project_Exit
     public static class Util
     {
         static ConsoleKey input;
-        // X키를 눌러야지 넘어가는 텍스트를 구현
+
+        // X키를 눌러야지 넘어가는 텍스트를 구현 ( 한 줄 씩 출력 )
         public static void XKeyText(string text)
         {
             Console.WriteLine(text);
@@ -27,6 +28,7 @@ namespace Project_Exit
                 }
             }                      
         }
+        // Z키를 눌러야지 넘어가는 텍스트를 구현 ( NPC와의 대화 종료용 )
         public static void ZKeyText(string text)
         {
             Console.WriteLine(text);
@@ -44,7 +46,7 @@ namespace Project_Exit
             }
         }
 
-        // 플레이어 대사 출력용 색깔 텍스트
+        // 플레이어 대사 출력용 색깔 텍스트 및 X키 입력 후 넘어가기
         public static void PlayerText(string text)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -64,7 +66,7 @@ namespace Project_Exit
             }
         }
 
-        // NPC 대사 출력용 색깔 텍스트
+        // NPC - N양 대사 출력용 색깔 텍스트 및 X키 입력 후 넘어가기
         public static void NPC_NText(string text)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -84,7 +86,7 @@ namespace Project_Exit
             }
         }
 
-        // NPC - C군 대사 출력용 색깔 텍스트
+        // NPC - C군 대사 출력용 색깔 텍스트 및 X키 입력 후 넘어가기
         public static void NPC_CText(string text)
         {
             Console.ForegroundColor = ConsoleColor.Red;

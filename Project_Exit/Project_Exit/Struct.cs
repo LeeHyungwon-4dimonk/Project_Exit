@@ -19,6 +19,5 @@
         {
             return left.x != right.x || left.y != right.y;
         }
-
     }
 }

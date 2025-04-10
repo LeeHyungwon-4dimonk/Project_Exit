@@ -13,9 +13,6 @@ namespace Project_Exit
         private int curPlayerHP = 5;
         public int CurPlayerHP { get { return curPlayerHP; } }
 
-        private int playerMental = 5;
-        public int PlayerMental { get { return playerMental; } }
-
         public Vector2 position;
         public bool[,] map;
 
@@ -26,6 +23,7 @@ namespace Project_Exit
             inventory = new Inventory();
         }
 
+        // HP 회복
         public void HPHeal(int amount)
         {
             curPlayerHP += amount;
@@ -35,6 +33,7 @@ namespace Project_Exit
             }
         }
 
+        // 플레이어 출력
         public void Print()
         {
             Console.SetCursorPosition(position.x, position.y);
@@ -43,6 +42,7 @@ namespace Project_Exit
             Console.ResetColor();
         }
 
+        // 플레이어 행동
         public void Action(ConsoleKey input)
         {
             switch (input)
@@ -53,11 +53,14 @@ namespace Project_Exit
                 case ConsoleKey.RightArrow:
                     Move(input);
                     break;
+                // 인벤토리 오픈 기능
                 case ConsoleKey.I:
                     inventory.Open();
                     break;
             }
         }
+
+        // 플레이어 움직임
         private void Move(ConsoleKey input)
         {
             Vector2 targetPos = position;

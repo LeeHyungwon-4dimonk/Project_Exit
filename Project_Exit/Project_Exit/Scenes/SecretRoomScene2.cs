@@ -5,6 +5,7 @@ namespace Project_Exit.Scenes
 {
     public class SecretRoomScene2 : SecretRoomField
     {
+        // 첫 진입 여부
         protected bool EnterFirstTime = true;
 
         public SecretRoomScene2()
@@ -45,6 +46,7 @@ namespace Project_Exit.Scenes
                     map[y, x] = mapData[y][x] == '#' ? false : true;
                 }
             }
+            // NPC 위치와는 겹치지 않게 이동 불가로 설정
             map[8, 36] = false;
             map[5, 9] = false;
 
@@ -53,7 +55,8 @@ namespace Project_Exit.Scenes
 
         protected override void StartText()
         {
-            if (EnterFirstTime) // 최초 1회만 출력되도록 함
+            // 최초 1회만 출력되도록 함
+            if (EnterFirstTime)
             {
                 Console.SetCursorPosition(0, 14);
                 Util.XKeyText("당신은 N양을 데리고 계단을 타고 한 층을 내려왔습니다.");

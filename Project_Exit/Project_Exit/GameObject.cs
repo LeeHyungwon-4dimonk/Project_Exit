@@ -11,6 +11,8 @@ namespace Project_Exit
         public ConsoleColor color;
         public char symbol;
         public Vector2 position;
+
+        // 오브젝트가 일회성인지 여부
         public bool isOnce;
 
         public GameObject(ConsoleColor color, char symbol, Vector2 position, bool isOnce)
@@ -21,6 +23,7 @@ namespace Project_Exit
             this.isOnce = isOnce;
         }
 
+        // 오브젝트 출력
         public void Print()
         {
             Console.SetCursorPosition(position.x, position.y);

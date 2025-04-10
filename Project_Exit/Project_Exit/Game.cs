@@ -7,7 +7,6 @@ namespace Project_Exit
     {
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
-        public static BaseScene Curscene { get { return curScene; } }
         public static string prevScene;
 
         private static Player player;
@@ -47,9 +46,7 @@ namespace Project_Exit
         private static void Start()
         {
             Console.CursorVisible = false;
-            gameOver = false;
-
-            
+            gameOver = false;            
 
             player = new Player();
             sceneDic = new Dictionary<string, BaseScene>();
@@ -59,7 +56,6 @@ namespace Project_Exit
             sceneDic.Add("SecretR2", new SecretRoomScene2());
             sceneDic.Add("Ending", new EndingScene());
             sceneDic.Add("DeadEnding", new DeadScene());
-
 
             curScene = sceneDic["Title"];
         }
@@ -85,9 +81,11 @@ namespace Project_Exit
             Console.WriteLine();
             curScene.Result();
         }
+
+        // 게임이 끝났음을 선언
         public static void GameOver()
         {
-            gameOver = true;            
+            gameOver = true;
         }
     }
 }
