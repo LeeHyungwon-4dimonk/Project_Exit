@@ -30,7 +30,7 @@ namespace Project_Exit.Scenes
 
             gameObjects = new List<GameObject>();
             gameObjects.Add(new Place("SecretR1", '▥', new Vector2(38, 6)));
-            gameObjects.Add(new Place("SecretR3", '▥', new Vector2(5, 2)));
+            gameObjects.Add(new Place("Ending", '▥', new Vector2(5, 2)));
             gameObjects.Add(new Rope(new Vector2(37, 3)));
             gameObjects.Add(new knife(new Vector2(10, 4)));
 
@@ -74,11 +74,7 @@ namespace Project_Exit.Scenes
             if (Game.prevScene == "SecretR1")
             {
                 Game.Player.position = new Vector2(38, 6);
-            }
-            else if (Game.prevScene == "SecretR3")
-            {
-                Game.Player.position = new Vector2(5, 2);
-            }
+            }            
             Game.Player.map = map;
         }
     }

@@ -24,6 +24,7 @@ namespace Project_Exit
                 if (curScene != sceneDic["Title"])
                 {
                     Console.WriteLine("                                          텍스트를 넘기려면 : X");
+                    Console.WriteLine("                                          인벤토리 : I");
                 }
                 curScene.Render();
                 curScene.Input();
@@ -32,8 +33,8 @@ namespace Project_Exit
                 Console.WriteLine();
                 curScene.Result();
                 if(curScene == sceneDic["Ending"])
-                {                    
-                    gameOver = true;
+                {
+                    GameOver();
                 }
             }
 
@@ -56,7 +57,6 @@ namespace Project_Exit
             sceneDic.Add("Prologue", new PrologueScene());
             sceneDic.Add("SecretR1", new SecretRoomScene1());
             sceneDic.Add("SecretR2", new SecretRoomScene2());
-            sceneDic.Add("SecretR3", new SecretRoomScene3());
             sceneDic.Add("Ending", new EndingScene());
             sceneDic.Add("DeadEnding", new DeadScene());
 
