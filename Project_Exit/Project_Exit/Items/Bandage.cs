@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_Exit.Items
 {
+    // 밴드는 소모성 아이템으로 사용 시 효과가 즉시 발동
     public sealed class Bandage : Item
     {
         public Bandage(Vector2 position)

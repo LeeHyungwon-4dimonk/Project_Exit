@@ -9,6 +9,7 @@ namespace Project_Exit.Items
 {
     public class knife : Item
     {
+        // 칼은 이벤트성 아이템으로 소유시 엔딩에 영향을 미침
         public knife(Vector2 position) : base(position, false)
         {
             name = "칼";

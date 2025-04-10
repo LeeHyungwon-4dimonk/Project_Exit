@@ -2,8 +2,11 @@
 
 namespace Project_Exit.NPCs
 {
+    // N양 NPC를 맵 위치에 따라서 분리하여 제작하기로 결정
+    // 해당 N양은 첫 번째 맵의 N양
     public class Ms_N : NPC
     {
+        // Queue를 사용하여 매번 다른 대화를 출력하도록 의도함
         Queue<int> talkLog = new Queue<int>();
         public Ms_N(Vector2 position)
             : base(ConsoleColor.DarkYellow, 'N', position)
@@ -22,6 +25,9 @@ namespace Project_Exit.NPCs
 
         public override void Talk()
         {
+            // 큐에 저장된 값이 한 개 이상일 경우
+            // 대화를 출력하고 저장된 값을 빼는 방식으로
+            // 대화를 매번 다르게 출력함
             if (talkLog.Count > 1)
             {
                 switch (talkLog.Peek())
@@ -30,6 +36,8 @@ namespace Project_Exit.NPCs
                     case 2: TalkLog2(); talkLog.Dequeue(); break;
                 }
             }
+            // 큐에 저장된 값이 한 개일 경우
+            // 마지막 대화 로그를 반복 출력함
             else
             {
                 TalkLog3();

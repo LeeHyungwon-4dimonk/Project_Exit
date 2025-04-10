@@ -8,10 +8,12 @@ using Project_Exit.Items;
 
 namespace Project_Exit.NPCs
 {
+    // N양 NPC를 맵 위치에 따라서 분리하여 제작하기로 결정
+    // 해당 N양은 두 번째 맵의 N양
     public class Ms_N2 : NPC
     {
+        // Queue를 사용하여 매번 다른 대화를 출력하도록 의도함
         Queue<int> talkLog = new Queue<int>();
-
         public Ms_N2(Vector2 position)
             : base(ConsoleColor.DarkYellow, 'N', position)
         {
@@ -29,6 +31,9 @@ namespace Project_Exit.NPCs
 
         public override void Talk()
         {
+            // 큐에 저장된 값이 한 개 이상일 경우
+            // 대화를 출력하고 저장된 값을 빼는 방식으로
+            // 대화를 매번 다르게 출력함
             if (talkLog.Count > 1)
             {
                 switch (talkLog.Peek())
@@ -37,6 +42,8 @@ namespace Project_Exit.NPCs
                     case 2: TalkLog2(); break;
                 }
             }
+            // 큐에 저장된 값이 한 개일 경우
+            // 마지막 대화 로그를 반복 출력함
             else
             {
                 TalkLog3();
@@ -73,6 +80,10 @@ namespace Project_Exit.NPCs
             Util.NPC_NText("사실은 나도 찾은 물건이 있는데, 유용할 지는 잘 모르겠어");
             Util.NPC_NText("일단 이 물건을 너한테 줄게.");
             Console.WriteLine();
+            // N양이 주는 아이템은 붕대
+            // 플레이어의 인벤토리에 공간이 있을 경우 아이템을 지급
+            // 인벤토리 자리가 없을 경우 다음 대화로 넘어가지 않고
+            // 아이템을 받을 때까지 현재 대화를 반복
             Bandage bandage = new Bandage(Game.Player.position);
             for (int i = 0; i < Game.Player.inventory.items.Length; i++)
             {
@@ -80,6 +91,7 @@ namespace Project_Exit.NPCs
                 {                    
                     Game.Player.inventory.Add(bandage);
                     Util.XKeyText("당신은 그녀에게 붕대를 받고서 나아갈 준비를 합니다.");
+                    // 아이템을 수령하면 다음 대화로 넘어감
                     talkLog.Dequeue();
                     break;
                 }

@@ -1,5 +1,10 @@
 ﻿namespace Project_Exit.NPCs
 {
+    // NPC - C군
+    // 엔딩 분기점에 해당하는 캐릭터로,
+    // 해당 캐릭터에게 어떤 상호작용을 하느냐에 따라
+    // 해당 캐릭터에서 얻을 수 있는 정보 및 생사가 결정됨
+    // 필수적 상호작용 대상이 아니며, 무시하고 지나가는 것 또한 의도된 것
     public class Mr_C : NPC
     {
         Queue<int> talkLog = new Queue<int>();
@@ -26,31 +31,31 @@
         {
             if (talkLog.Peek() == 1)    // 대화 분기점
             {
-                TalkLog1();
+                TurningPoint();
             }
-            else if (talkLog.Peek() == 2)   // 1번 엔딩
+            else if (talkLog.Peek() == 2)   // 1번 엔딩 반복 출력문
             {
-                TalkLog5();
+                Ending1_E();
             }
             else if (talkLog.Peek() == 3)   // 2-1번 엔딩
             {
-                TalkLog6();
+                Ending2_2();
             }
             else if (talkLog.Peek() == 4)   // 2-2번 엔딩
             {
-                TalkLog7();
+                Ending2_3();
             }
-            else if (talkLog.Peek() == 5)   // 2-3번 엔딩
+            else if (talkLog.Peek() == 5)   // 2-3 엔딩 반복 출력문
             {
-                TalkLog8();
+                Ending2_E();
             }
-            else if (talkLog.Peek() == 6)   // 3번 엔딩
+            else if (talkLog.Peek() == 6)   // 3번 엔딩 반복 출력문
             {
-                TalkLog9();
+                Ending3_E();
             }
         }
 
-        private void TalkLog1()
+        private void TurningPoint()
         {
             Console.SetCursorPosition(0, 14);
             Util.XKeyText("책상 위에 한 남자가 잠을 청하고 있습니다.");
@@ -65,17 +70,18 @@
             input = Console.ReadKey(true).Key;
             switch (input)
             {
-                case ConsoleKey.D1: TalkLog2(); break;
-                case ConsoleKey.D2: TalkLog3(); break;
-                case ConsoleKey.D3: TalkLog4(); break;
+                case ConsoleKey.D1: Ending1(); break;
+                case ConsoleKey.D2: Ending2(); break;
+                case ConsoleKey.D3: Ending3(); break;
                 default: Console.WriteLine("잘못된 입력입니다."); break;
             }
             isTalking = false;
         }
-        private void TalkLog2()
+        private void Ending1()
         {
             for (int i = 0; i < Game.Player.inventory.items.Length; i++)
             {
+                // 인벤토리에 칼이 있을 경우 1번 엔딩
                 if (Game.Player.inventory.items[i] != null && Game.Player.inventory.items[i].name == "칼")
                 {
                     Util.XKeyText("당신을 칼을 들어 남자를 뒤에서 공격했습니다.");
@@ -99,6 +105,7 @@
                     break;
                 }                
             }
+            // 인벤토리에 칼이 없을 경우 데드엔딩
             if (eventHappened == false)
             {
                 Util.XKeyText("당신에게는 남자를 제압할 칼이 없었습니다.");
@@ -111,10 +118,11 @@
 
             isTalking = false;
         }
-        private void TalkLog3()
+        private void Ending2()
         {
             for (int i = 0; i < Game.Player.inventory.items.Length; i++)
             {
+                // 인벤토리에 밧줄이 있을 경우 2번 엔딩
                 if (Game.Player.inventory.items[i] != null && Game.Player.inventory.items[i].name == "밧줄")
                 {
                     Util.XKeyText("당신은 남자의 등 뒤에서 양 팔을 강하게 붙잡아 포박합니다.");
@@ -136,6 +144,7 @@
                     break;
                 }                
             }
+            // 인벤토리에 밧줄이 없을 경우 데드엔딩
             if (eventHappened == false)
             {
                 Util.XKeyText("당신에게는 남자를 제압할 밧줄이 없었습니다.");
@@ -148,8 +157,9 @@
 
             isTalking = false;
         }
-        private void TalkLog4()
+        private void Ending3()
         {
+            // 3번 엔딩
             Util.XKeyText("당신과 N양은, 괜히 남자를 건드리지 않고 가기로 합니다.");
             Util.XKeyText("남자는 당신들이 지나갈 때까지도 여전히 잠을 자고 있습니다.");
             Console.WriteLine();
@@ -162,8 +172,9 @@
 
             isTalking = false;
         }
-        private void TalkLog5()
+        private void Ending1_E()
         {
+            // 1번 엔딩 반복 출력문
             Console.SetCursorPosition(0, 14);
             Util.XKeyText("남자는 더 이상 움직이지 않습니다.");
             Console.WriteLine();
@@ -171,7 +182,7 @@
 
             isTalking = false;
         }
-        private void TalkLog6()
+        private void Ending2_2()
         {
             Console.SetCursorPosition(0, 14);
             Util.NPC_CText("네놈들! 이게 느닷없이 뭐 하는 짓이냐!");
@@ -195,7 +206,7 @@
             
             isTalking = false;
         }
-        private void TalkLog7()
+        private void Ending2_3()
         {
             Console.SetCursorPosition(0, 14);
             Util.PlayerText("...그러면 대체 왜 책상에 이만한 칼이 있는 건데요!");
@@ -228,8 +239,9 @@
 
             isTalking = false;
         }
-        private void TalkLog8()
+        private void Ending2_E()
         {
+            // 2번 엔딩 반복 출력문
             Console.SetCursorPosition(0, 14);
             Util.NPC_CText("하여튼 이 자식들아, 아무리 대학생활을 즐긴다고 해도,");
             Util.NPC_CText("길바닥에서 뻗고 노숙하는 것도 청춘은 아녀!");
@@ -240,8 +252,9 @@
 
             isTalking = false;
         }
-        private void TalkLog9()
+        private void Ending3_E()
         {
+            // 3번 엔딩 반복 출력문
             Console.SetCursorPosition(0, 14);
             Util.XKeyText("남자는 여전히 곤히 자고 있습니다.");
             Util.XKeyText("괜히 건들지 않는 편이 좋아 보입니다.");
