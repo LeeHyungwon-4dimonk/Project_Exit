@@ -1,4 +1,6 @@
-﻿namespace Project_Exit.NPCs
+﻿using Project_Exit.Items;
+
+namespace Project_Exit.NPCs
 {
     // NPC - C군
     // 엔딩 분기점에 해당하는 캐릭터로,
@@ -13,8 +15,6 @@
         // 이벤트 발생 여부
         private bool eventHappened = false;
 
-        private bool knifeCollected = false;
-        public bool KnifeCollected { get { return knifeCollected; } }
         public Mr_C(Vector2 position)
             : base(ConsoleColor.Red, 'C', position)
         {
@@ -224,16 +224,18 @@
             Util.NPC_CText("그만 깜빡 잠들어버렸지 뭐냐.");
             Console.WriteLine();
             Util.XKeyText("남자는 칼을 정리합니다.");
+            // 칼을 정리하는 이벤트로, 인벤토리 / 필드에 칼이 있을 경우 제거
+
+            //1. 인벤토리에 칼이 있을 시 제거
             for (int i = 0; i < Game.Player.inventory.items.Length; i++)
             {
                 if (Game.Player.inventory.items[i] != null && Game.Player.inventory.items[i].name == "칼")
                 {                    
-                    // 아이템 수거로 인해 인벤토리에 있을 시 제거
                     Game.Player.inventory.items[i] = null;
                 }
             }
-            knifeCollected = true;
-            // TODO 필드에 칼 있을 때 제거 작업
+            // 2. 아이템이 필드에 있을 경우 제거하는 방식
+            // 질문해봤는데 많이 복잡하대서 혹시 방법 나오면 추가할 예정
             Console.WriteLine();
             Util.NPC_CText("하여튼 너네 둘, 머리가 아프거나 숙취가 있다거나 하나?");
             Util.NPC_NText("아, 아뇨! 없어요!");

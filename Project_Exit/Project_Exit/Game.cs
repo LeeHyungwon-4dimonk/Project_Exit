@@ -14,6 +14,7 @@ namespace Project_Exit
 
         private static bool gameOver = false;
 
+        // 엔딩 루트를 결정하는 변수
         private static int endingNum = 0;
         public static int EndingNum {  get { return endingNum; } }
         public static void Run()

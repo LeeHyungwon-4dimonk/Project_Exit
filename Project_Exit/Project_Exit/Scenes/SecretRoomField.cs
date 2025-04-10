@@ -16,6 +16,7 @@ namespace Project_Exit.Scenes
         public override void Render()
         {
             PrintMap();
+            // 여기가 아이템 출력 코드 위치
             foreach (GameObject go in gameObjects)
             {
                 go.Print();
@@ -57,7 +58,7 @@ namespace Project_Exit.Scenes
                     if (go.isOnce == true && Game.Player.inventory.ItemAchieved)
                     {
                         gameObjects.Remove(go);
-                    }                    
+                    }              
                     break;                    
                 }
             }
