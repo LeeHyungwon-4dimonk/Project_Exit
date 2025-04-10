@@ -1,4 +1,5 @@
-﻿using Project_Exit.NPCs;
+﻿using Project_Exit.Items;
+using Project_Exit.NPCs;
 
 namespace Project_Exit.Scenes
 {
@@ -56,8 +57,8 @@ namespace Project_Exit.Scenes
                     if (go.isOnce == true && Game.Player.inventory.ItemAchieved)
                     {
                         gameObjects.Remove(go);
-                    }
-                    break;
+                    }                    
+                    break;                    
                 }
             }
             // NPC와 대화가 가능한 상태이고, X키를 눌렀을 경우 대화 시작

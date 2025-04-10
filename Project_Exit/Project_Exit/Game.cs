@@ -13,6 +13,9 @@ namespace Project_Exit
         public static Player Player { get { return player; } }
 
         private static bool gameOver = false;
+
+        private static int endingNum = 0;
+        public static int EndingNum {  get { return endingNum; } }
         public static void Run()
         {
             Start();
@@ -94,6 +97,11 @@ namespace Project_Exit
         public static void GameOver()
         {
             gameOver = true;
+        }
+        
+        public static void EndingBranch(int num)
+        {
+            endingNum = num;
         }
     }
 }

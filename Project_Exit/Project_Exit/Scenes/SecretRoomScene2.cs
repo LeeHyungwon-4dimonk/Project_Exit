@@ -34,10 +34,10 @@ namespace Project_Exit.Scenes
             gameObjects.Add(new Place("Ending", '▥', new Vector2(5, 2)));
             gameObjects.Add(new Rope(new Vector2(37, 3)));
             gameObjects.Add(new knife(new Vector2(10, 4)));
-
+            
             npcList = new List<NPC>();
             npcList.Add(new Ms_N2(new Vector2(36, 8)));
-            npcList.Add(new Mr_C(new Vector2(9, 5)));
+            npcList.Add(new Mr_C(new Vector2(9, 5)));           
 
             for (int y = 0; y < map.GetLength(0); y++)
             {

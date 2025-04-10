@@ -9,7 +9,12 @@
     {
         // Queue를 사용하여 매번 다른 대화를 출력하도록 의도함
         Queue<int> talkLog = new Queue<int>();
+
+        // 이벤트 발생 여부
         private bool eventHappened = false;
+
+        private bool knifeCollected = false;
+        public bool KnifeCollected { get { return knifeCollected; } }
         public Mr_C(Vector2 position)
             : base(ConsoleColor.Red, 'C', position)
         {
@@ -98,6 +103,7 @@
                     Game.Player.inventory.items[i] = null;
                     Console.WriteLine();
                     Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
+                    Game.EndingBranch(1);
                     eventHappened = true;
                     talkLog.Dequeue();
 
@@ -165,6 +171,7 @@
             Util.XKeyText("남자는 당신들이 지나갈 때까지도 여전히 잠을 자고 있습니다.");
             Console.WriteLine();
             Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
+            Game.EndingBranch(3);
             talkLog.Dequeue();
             talkLog.Dequeue();
             talkLog.Dequeue();
@@ -179,7 +186,7 @@
             Console.SetCursorPosition(0, 14);
             Util.XKeyText("남자는 더 이상 움직이지 않습니다.");
             Console.WriteLine();
-            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");            
 
             isTalking = false;
         }
@@ -225,6 +232,7 @@
                     Game.Player.inventory.items[i] = null;
                 }
             }
+            knifeCollected = true;
             // TODO 필드에 칼 있을 때 제거 작업
             Console.WriteLine();
             Util.NPC_CText("하여튼 너네 둘, 머리가 아프거나 숙취가 있다거나 하나?");
@@ -235,6 +243,7 @@
             Util.XKeyText("남자는 심통이 난 것 같습니다.");
             Console.WriteLine();
             Util.XKeyText("대화를 종료하려면 X키를 누르세요."); ;
+            Game.EndingBranch(2);
 
             talkLog.Dequeue();
 
@@ -260,7 +269,7 @@
             Util.XKeyText("남자는 여전히 곤히 자고 있습니다.");
             Util.XKeyText("괜히 건들지 않는 편이 좋아 보입니다.");
             Console.WriteLine();
-            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");            
 
             isTalking = false;
         }
