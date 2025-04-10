@@ -23,7 +23,15 @@ namespace Project_Exit
                 if (curScene != sceneDic["Title"])
                 {
                     Console.WriteLine("                                          텍스트를 넘기려면 : X");
+                }
+                if (curScene != sceneDic["Title"] && curScene != sceneDic["Prologue"])
+                {
+                    Console.WriteLine();
                     Console.WriteLine("                                          인벤토리 : I");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"                                          HP : {Player.CurPlayerHP} / {Player.MaxPlayerHP}");
+                    Console.ResetColor();
                 }
                 curScene.Render();
                 curScene.Input();

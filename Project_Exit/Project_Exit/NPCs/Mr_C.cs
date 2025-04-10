@@ -7,6 +7,7 @@
     // 필수적 상호작용 대상이 아니며, 무시하고 지나가는 것 또한 의도된 것
     public class Mr_C : NPC
     {
+        // Queue를 사용하여 매번 다른 대화를 출력하도록 의도함
         Queue<int> talkLog = new Queue<int>();
         private bool eventHappened = false;
         public Mr_C(Vector2 position)

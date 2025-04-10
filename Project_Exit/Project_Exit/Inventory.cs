@@ -122,6 +122,10 @@
         private void Menu()
         {
             PrintAll();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"HP : {Game.Player.CurPlayerHP} / {Game.Player.MaxPlayerHP}");
+            Console.ResetColor();
+            Console.WriteLine();
             Console.WriteLine("1. 상세 정보 확인하기");
             Console.WriteLine("2. 아이템 버리기");
             Console.WriteLine("X. 뒤로 가기");

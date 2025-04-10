@@ -9,8 +9,9 @@ namespace Project_Exit
 {
     public class Player
     {
-        private int MaxPlayerHP = 5;
+        private int maxPlayerHP = 5;
         private int curPlayerHP = 5;
+        public int MaxPlayerHP { get { return maxPlayerHP; } }
         public int CurPlayerHP { get { return curPlayerHP; } }
 
         public Vector2 position;
@@ -27,9 +28,18 @@ namespace Project_Exit
         public void HPHeal(int amount)
         {
             curPlayerHP += amount;
-            if(curPlayerHP > MaxPlayerHP)
+            if(curPlayerHP > maxPlayerHP)
             {
-                curPlayerHP = MaxPlayerHP;
+                curPlayerHP = maxPlayerHP;
+            }
+        }
+
+        public void PlayerDamage(int amount)
+        {
+            curPlayerHP -= amount;
+            if (curPlayerHP < 0)
+            {
+                curPlayerHP = 0;
             }
         }
 

@@ -60,6 +60,12 @@ namespace Project_Exit.Scenes
             {
                 Console.SetCursorPosition(0, 14);
                 Util.XKeyText("당신은 N양을 데리고 계단을 타고 한 층을 내려왔습니다.");
+                Util.XKeyText("어두운 위층에서 내려오던 탓이었을까요?");
+                Util.XKeyText("당신은 계단에서 미끄러지며 시원하게 넘어집니다.");
+                Console.WriteLine();
+                Util.XKeyText("2의 데미지를 받았습니다.");
+                Game.Player.PlayerDamage(2);
+                Console.WriteLine();
                 Util.XKeyText("위층 보다는 조금 더 깨끗해 보이는 방이 보입니다.");
                 Util.XKeyText("계단의 마지막 단을 밟은 순간 인기척이 느껴집니다.");
                 Console.WriteLine();
