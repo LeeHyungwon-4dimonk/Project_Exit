@@ -27,24 +27,7 @@ namespace Project_Exit
                     continue;
                 }
             }                      
-        }
-        // Z키를 눌러야지 넘어가는 텍스트를 구현 ( NPC와의 대화 종료용 )
-        public static void ZKeyText(string text)
-        {
-            Console.WriteLine(text);
-            while (true)
-            {
-                input = Console.ReadKey(true).Key;
-                if (input == ConsoleKey.Z)
-                {
-                    break;
-                }
-                else // X키 외의 키를 누르면 무반응으로 설정
-                {
-                    continue;
-                }
-            }
-        }
+        }        
 
         // 플레이어 대사 출력용 색깔 텍스트 및 X키 입력 후 넘어가기
         public static void PlayerText(string text)

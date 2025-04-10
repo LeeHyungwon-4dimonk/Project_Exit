@@ -27,13 +27,7 @@ namespace Project_Exit.Scenes
             Game.Player.inventory.BrieflyPrint();            
             Game.Player.inventory.PrintAchievedItem();
             StartText();
-            foreach (NPC npc in npcList)
-            {
-                if (npc.isTalking == true && input == ConsoleKey.X)
-                {
-                    npc.Interact(Game.Player);
-                }
-            }
+            
         }
         public override void Input()
         {
@@ -43,6 +37,12 @@ namespace Project_Exit.Scenes
         public override void Update()
         {
             Game.Player.Action(input);
+            // NPC와 상호작용 가능한 영역에 진입했는지 확인하고,
+            // 대화 가능 여부를 결정 - 해당 위치에서 X키를 누르면 대화 시작
+            foreach (NPC npc in npcList)
+            {
+                npc.isTalking = npc.IsInteractable() ? true : false;
+            }
         }
 
         public override void Result()
@@ -52,6 +52,8 @@ namespace Project_Exit.Scenes
                 if (Game.Player.position == go.position && input != ConsoleKey.X)
                 {
                     go.Interact(Game.Player);
+                    // 게임오브젝트가 아이템이고, 아이템이 인벤토리에 들어갔을 경우
+                    // 인벤토리에 넣는 것이 실패하면 안 사라짐
                     if (go.isOnce == true && Game.Player.inventory.ItemAchieved)
                     {
                         gameObjects.Remove(go);
@@ -59,11 +61,17 @@ namespace Project_Exit.Scenes
                     break;
                 }
             }
+            // NPC와 대화가 가능한 상태이고, X키를 눌렀을 경우 대화 시작
             foreach (NPC npc in npcList)
             {
-                npc.isTalking = npc.IsInteractable()? true : false;
+                if (npc.isTalking == true && input == ConsoleKey.X)
+                {
+                    npc.Interact(Game.Player);
+                }
             }
         }
+
+        // 맵 출력
         private void PrintMap()
         {
             Console.SetCursorPosition(0, 0);
@@ -83,6 +91,8 @@ namespace Project_Exit.Scenes
                 Console.WriteLine();
             }
         }
+
+        // 맵 진입 시 출력되는 텍스트
         protected virtual void StartText() { }
     }
 }

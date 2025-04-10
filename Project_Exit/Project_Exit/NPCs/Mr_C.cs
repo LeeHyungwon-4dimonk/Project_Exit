@@ -90,7 +90,7 @@
                     // 칼 아이템을 버렸으니 인벤토리에서 제거
                     Game.Player.inventory.items[i] = null;
                     Console.WriteLine();
-                    Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+                    Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
                     eventHappened = true;
                     talkLog.Dequeue();
 
@@ -128,7 +128,7 @@
                     Game.Player.inventory.items[i] = null;
                     Util.XKeyText("남자는 묶인 채로 주저앉습니다.");
                     Console.WriteLine();
-                    Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+                    Util.XKeyText("대화를 종료하려면 X키를 누르세요."); ;
                     eventHappened = true;
                     talkLog.Dequeue();
                     talkLog.Dequeue();
@@ -153,7 +153,7 @@
             Util.XKeyText("당신과 N양은, 괜히 남자를 건드리지 않고 가기로 합니다.");
             Util.XKeyText("남자는 당신들이 지나갈 때까지도 여전히 잠을 자고 있습니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
             talkLog.Dequeue();
             talkLog.Dequeue();
             talkLog.Dequeue();
@@ -167,7 +167,7 @@
             Console.SetCursorPosition(0, 14);
             Util.XKeyText("남자는 더 이상 움직이지 않습니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             isTalking = false;
         }
@@ -189,7 +189,7 @@
             Console.WriteLine();
             Util.XKeyText("이제서야 모든 퍼즐이 맞춰지는 것 같습니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             talkLog.Dequeue();
             
@@ -222,7 +222,7 @@
             Console.WriteLine();
             Util.XKeyText("남자는 심통이 난 것 같습니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요."); ;
 
             talkLog.Dequeue();
 
@@ -236,7 +236,7 @@
             Console.WriteLine();
             Util.XKeyText("당신과 N양은 남자한테 뻘쭘하게 인사하고는 자리를 뜹니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             isTalking = false;
         }
@@ -246,7 +246,7 @@
             Util.XKeyText("남자는 여전히 곤히 자고 있습니다.");
             Util.XKeyText("괜히 건들지 않는 편이 좋아 보입니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             isTalking = false;
         }

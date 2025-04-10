@@ -48,7 +48,7 @@ namespace Project_Exit.NPCs
             Console.WriteLine();
             Util.XKeyText("N양은 혼란스러워 보입니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             isTalking = false;
         }
@@ -70,7 +70,7 @@ namespace Project_Exit.NPCs
             Console.WriteLine();
             Util.XKeyText("그녀의 말에 당신은 고개를 끄덕이고는 N양을 일으켜 세웁니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             isTalking = false;
         }
@@ -81,7 +81,7 @@ namespace Project_Exit.NPCs
             Console.WriteLine();
             Util.XKeyText("당신은 무어라 더 할 말이 없어 돌아섭니다.");
             Console.WriteLine();
-            Util.ZKeyText("대화를 종료하려면 Z키를 누르세요.");
+            Util.XKeyText("대화를 종료하려면 X키를 누르세요.");
 
             isTalking = false;
         }
